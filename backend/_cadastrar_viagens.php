@@ -30,21 +30,24 @@ try{
     )
     ";
 
- // Prepara a execucão da query SQL acima
+ // Prepara a execucão da query SQL acima, 
 $comando = $con->prepare($sql);
 
-// executa o ca
+// executa o comando com o query no banco de dados 
 $comando->execute();
 
-// 
+// exibe msg de sucesso ao inserir
 echo "cadastrado com sucesso!";
 
+//fechar a conexao 
+$con = null;
 
-
-
+//exibe mensagem de erro que o pdo encontrou 
 }catch(PDOException $erro){
-
+    echo $erro->getMessage();
+    //die deu erro para o arquivo, morre a pagina
+    die();
+    
 }
-
 
 ?>
