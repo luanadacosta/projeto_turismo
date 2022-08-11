@@ -45,11 +45,11 @@
             <img class="img-viagens" src="img/gramado.jpg" alt="imagem da viagem">
             <!--bloco php figcaption repete ele varias vezes-->
             <figcaption class="figcaption-viagens">
-                <h4><?php echo $d['titulo'];?>Pacote de Inverno</h4>
-                <h5><?php echo $d['local'];?>Gramado</h5>
-                <h5><?php echo $d['valor'];?>R$ 1.700</h5>
+                <h4><?php echo $d['titulo'];?></h4>
+                <h5><?php echo $d['local'];?></h5>
+                <h5><?php echo $d['valor'];?></h5>
                 <!--small deixa texto pequeno-->
-                <small><?php echo $d['desc'];?>5 dias de Hotel com café da manhã</small>
+                <small><?php echo $d['desc'];?></small>
                 <button class="btn-comprar">Comprar</button>
             </figcaption>
         </figure>
