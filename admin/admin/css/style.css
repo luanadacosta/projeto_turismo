@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+#container{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 3px rgb(0 0 0 / 55%);
+    border: 1px solid rgba(0,0,0,0.4);
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-login{
+    padding: 6px 12px;
+    width: 50%;
+    background-color: black;
+    color: aliceblue;
+    align-items: center;
+}
+
+
