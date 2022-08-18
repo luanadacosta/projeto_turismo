@@ -15,6 +15,7 @@ try {
     //echo "<pre>";
     //var_dump($dados);
     //echo "</pre>";
+ 
 } catch (PDOException $erro) {
     //exibe a mensagem erro
     echo $erro->getMessage();
@@ -29,6 +30,9 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Viagens</title>
+
+    <hr>
+    <a href="cadastrar_viagens.html">Cadastrar Viagens</a>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 

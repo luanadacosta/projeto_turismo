@@ -5,15 +5,28 @@ include'conexao.php';
 
 try{
     // Exibe as váriaveis globais recebidas via POST
+    echo"<pre>";
+    //FILES ve si recebe a imagem
+    // var_dump($_FILES);
     // echo"<pre>";
-    // var_dump($_POST);
-    // echo"<pre>";
-
+    // exit;
     // variaveis que recebem os dados enviados via POST
     $titulo = $_POST['titulo'];
     $local = $_POST['local'];
     $valor = $_POST['valor'];
     $desc = $_POST['desc'];
+
+    //=====================
+    //upload da imagem
+    //caminho onde a imagem sera armazenada
+    $pasta =   '../img/upload/';
+
+    $imagem = 'foto.jpg';
+
+    //funçaõ que faz o upload da imagem
+    move_uploaded_file($_FILES['imagem']['tmp_name'],$pasta.$image);
+
+    exit;
 
     // variavel que recebe a query SQL que será executada na BD
     $sql = "INSERT INTO 
@@ -33,14 +46,16 @@ try{
  // Prepara a execucão da query SQL acima, 
 $comando = $con->prepare($sql);
 
-
 // executa o comando com o query no banco de dados 
-
-// executa o comando com a query no banco de dados 
 $comando->execute();
 
+// executa o comando com a query no banco de dados 
+
+
 // exibe msg de sucesso ao inserir
-echo "cadastrado com sucesso!";
+//echo "cadastrado com sucesso!";
+
+header('Location:../admin/gerenciar_viagens.php');
 
 //fechar a conexao 
 $con = null;
@@ -53,16 +68,6 @@ $con = null;
     die();
 }
 
-?>
-
-$con = null;
-
-}catch(PDOException $erro){
-    echo $erro->getMessage();
-    // mata o arquivo 
-    die();
-
-}
 
 ?>
 
