@@ -1,23 +1,23 @@
 <?php
- include '../backend/conexao.php';
+include '../backend/conexao.php';
 
- //captura a variavel global Id recebida via GET
- $id = $_GET['id'];
-try{
+//captura a variavel global Id recebida via GET
+$id = $_GET['id'];
+try {
     //comando sql que ira selecionar as viagens por id
-$sql = "SELECT * FROM tb_viagens WHERE id = $id";
+    $sql = "SELECT * FROM tb_viagens WHERE id = $id";
 
-$comando = $con->prepare($sql);
+    $comando = $con->prepare($sql);
 
-$comando ->execute();
+    $comando->execute();
 
-$dados = $comando->fetchAll(PDO::FETCH_ASSOC);
+    $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
 
-//echo "<pre>";
-//var_dump($dados);
-//echo "<pre>";
+    //echo "<pre>";
+    //var_dump($dados);
+    //echo "<pre>";
 
-}catch(PDOException $erro){
+}catch (PDOException $erro) {
     //tratamento de erro
     echo $erro->getMessage();
 }
@@ -40,39 +40,46 @@ $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
         <h3>Alterar Viagens</h3>
         <hr>
         <a href="gerenciar_viagens.php">Gerenciar Viagens</a>
-        <hr>
-        <form action="../backend/_alterar_viagens.php" method="post">
+        <hr><!--multipart = manda arquivo-->
+        <form action="../backend/_alterar_viagens.php" method="post" enctype="multipart/form-data">
 
             <div id="grid-alterar">
 
                 <div>
-                    <label for="">Id</label>
-                    <input type="text" name="id" id="id" value="<?php echo $dados[0]['id']?>" readonly>
+                    <label for="id">Id</label>
+                    <input type="text" name="id" id="id" value="<?php echo $dados[0]['id'] ?>" readonly>
                 </div>
 
                 <div>
                     <label for="titulo">Título</label>
-                    <input type="text" name="titulo" id="titulo" value="<?php echo $dados[0]['titulo']?>">
+                    <input type="text" name="titulo" id="titulo" value="<?php echo $dados[0]['titulo'] ?>">
                 </div>
 
                 <div>
                     <label for="local">Local</label>
-                    <input type="text" name="local" id="local" value="<?php echo $dados[0]['local']?>">
+                    <input type="text" name="local" id="local" value="<?php echo $dados[0]['local'] ?>">
                 </div>
 
                 <div>
                     <label for="valor">Valor</label>
-                    <input type="text" name="valor" id="valor" value="<?php echo $dados[0]['valor']?>">
+                    <input type="text" name="valor" id="valor" value="<?php echo $dados[0]['valor'] ?>">
                 </div>
+
+                <div>
+                    <label for="imagem">Alterar Imagem</label>
+                    <input type="file" name="imagem" id="imagem">
+                </div>
+                <img class="img-alterar" src="../img/upload/<?php echo $dados[0]['imagem'] ?>">
 
                 <div>
                     <label for="desc">Descrição</label>
                     <!--cols = largura rows = autura-->
-                    <textarea name="desc" id="desc" cols="30" rows="10"><?php echo $dados[0]['desc']?></textarea>
+                    <textarea name="desc" id="desc" cols="30" rows="10"><?php echo $dados[0]['desc'] ?></textarea>
                 </div>
             </div>
             <input type="submit" value="Salvar">
         </form>
     </div>
 </body>
+
 </html>

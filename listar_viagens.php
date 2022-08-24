@@ -22,39 +22,11 @@
         
     }
     
-?>
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-// incluindo arquivo de conexão
-include 'backend/conexao.php';
-
-try{
-
-    // monta a query sql
-    $sql = "SELECT * FROM tb_viagens";
-
-    // prepara a execução da query sql acima
-    $comando = $con->prepare($sql);
-
-    // executa o comando com a query no banco de dados
-    $comando->execute();
-
-    // cria a var que irá armazenar os dados, e setando o fetch em modo associativo(chave/valor)
-    $dados = $comando->fetchAll(PDO::FETCH_ASSOC);
-
-    // sempre fechar o pre
-    // echo"<pre>";
-    // var_dump($dados); 
-    // echo"</pre>";
-
-} catch (PDOException $erro) {
-    echo $erro->getMessage();
-}
 
 ?>
+
+
+
 
 
 
@@ -79,7 +51,7 @@ try{
             foreach($dados as $d):
         ?>
         <figure class="figure-viagens"><!--html-->
-            <img class="img-viagens" src="img/gramado.jpg" alt="imagem da viagem">
+            <img class="img-viagens" src="img/upload/<?php echo $d ['imagem']?>" alt="imagem da viagem">
             <!--bloco php figcaption repete ele varias vezes-->
             <figcaption class="figcaption-viagens">
                 <h4><?php echo $d['titulo'];?></h4>
@@ -110,10 +82,10 @@ try{
                 <figure class="figure-viagens">
                     <img class="img-viagens" src="img/viagem-faltando.png" alt="imagem da viagem ">
                     <figcaption class="figcaption-viagens">
-                        <h4><?php echo $d['Titulo']; ?></h4>
-                        <h5><?php echo $d['Local']; ?></h5>
-                        <h5>R$<?php echo $d['Valor']; ?></h5>
-                        <small><?php echo $d['Desc']; ?></small>
+                        <h4><?php echo $d['titulo']; ?></h4>
+                        <h5><?php echo $d['local']; ?></h5>
+                        <h5>R$<?php echo $d['valor']; ?></h5>
+                        <small><?php echo $d['desc']; ?></small>
                         <button class="btn-viagens">Comprar</button>
                     </figcaption>
                 </figure>
