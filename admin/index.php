@@ -1,3 +1,14 @@
+<?php
+
+//inicia a sessao
+session_start();
+
+if(isset($_SESSION['usuario'])){
+    header('Location: gerenciar_viagens.php');
+}
+
+?>
+
 
 
 <!DOCTYPE html>

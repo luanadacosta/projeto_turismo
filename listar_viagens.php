@@ -21,14 +21,7 @@
         echo $erro->getMessage();
         
     }
-    
-
 ?>
-
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -38,15 +31,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Lista de Viagens</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <div id="container">
     <h3>Lista de Viagens</h3>
     <div id="grid-viagens">
         <!--repetição foreach,  $dados as= dando apelido $d dados resume o nome de dados-->
+      
         <?php
             foreach($dados as $d):
         ?>
@@ -67,35 +59,5 @@
     </div>
   </div>  
 </body>
-
-    <link rel="stylesheet" href="css/style.css">
-    <title>Lista de viagens</title>
-</head>
-
-<body>
-    <div id="container">
-        <h3>Lista de Viagens</h3>
-        <div id="grid-viagens">
-            <?php
-            foreach ($dados as $d):
-            ?>
-                <figure class="figure-viagens">
-                    <img class="img-viagens" src="img/viagem-faltando.png" alt="imagem da viagem ">
-                    <figcaption class="figcaption-viagens">
-                        <h4><?php echo $d['titulo']; ?></h4>
-                        <h5><?php echo $d['local']; ?></h5>
-                        <h5>R$<?php echo $d['valor']; ?></h5>
-                        <small><?php echo $d['desc']; ?></small>
-                        <button class="btn-viagens">Comprar</button>
-                    </figcaption>
-                </figure>
-
-            <?php endforeach;?>
-
-        </div>
-    </div>
-
-</body>
-
 
 </html>
